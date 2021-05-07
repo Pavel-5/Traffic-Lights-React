@@ -8,7 +8,7 @@ class Green extends React.Component {
 
     this.state = {
       isActive: true,
-      count: 5,
+      count: 15,
     };
 
     this.indexTimeout = [];
