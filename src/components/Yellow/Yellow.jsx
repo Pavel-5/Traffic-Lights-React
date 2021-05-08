@@ -3,11 +3,11 @@ import React from "react";
 import "../Styles.css";
 
 class Yellow extends React.Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.indexTimeout = null;
-	}
+    this.indexTimeout = null;
+  }
 
   componentDidMount() {
     this.timer();
@@ -19,10 +19,12 @@ class Yellow extends React.Component {
 
   timer() {
     this.indexTimeout = setTimeout(() => {
-			clearTimeout(this.indexTimeout);
-      if (this.props.location.state.color === "green")
-        this.props.history.push("/red");
-      else this.props.history.push("/green");
+      clearTimeout(this.indexTimeout);
+      if (this.props.location.state) {
+        if (this.props.location.state.color === "green")
+          this.props.history.push("/red");
+        else this.props.history.push("/green");
+      } else this.props.history.push("/green");
     }, 3000);
   }
 
